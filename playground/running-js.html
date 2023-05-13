@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Generally not recommended: putting script tag in the head -->
+    <!-- you can circumvent this with e.g. async or defer in the script tag -->
+    <script src="./some.js" defer></script>
+  </head>
 
-<body>
+  <body>
+    <p>hey</p>
 
-</body>
+
+
+    <!-- General tip: put script tag just before closing body tag -->
+    <!-- <script>
+      console.log('saluetti');
+      const p = document.querySelector('p');
+      console.log(p);
+      
+    </script> -->
+    <!-- <script src="./some.js"></script> -->
+  </body>
 
 </html>
