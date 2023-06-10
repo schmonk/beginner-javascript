@@ -19,4 +19,11 @@ pizzaList.insertAdjacentText("beforeend",`🍕`);
 
 //Classes!
 const pic = document.querySelector('.nice');
+pic.classList.add('open');
 console.log(pic.classList);
+
+function toggleRound() {
+    pic.classList.toggle('round');
+}
+
+pic.addEventListener('click', toggleRound);
