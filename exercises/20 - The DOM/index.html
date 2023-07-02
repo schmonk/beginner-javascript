@@ -1,52 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>The DOM</title>
+    <link rel="stylesheet" href="../../base.css" />
+    <script src="./the-dom.js" defer></script>
+    <link rel="icon" href="https://fav.farm/💩" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>The DOM</title>
-  <link rel="stylesheet" href="../../base.css">
-  <script src="./the-dom.js" defer></script>
-  <link rel="icon" href="https://fav.farm/💩" />
-</head>
+  <body>
+    <img class="nice open" src="https://source.unsplash.com/random/600x600" />
 
-<body>
-  
-  <img class="nice cool" src="https://source.unsplash.com/random/600x600" />
-  
-  <div class="items">
-    <div class="item item2">
+    <div class="items">
+      <div class="item item2">
+        <img src="https://source.unsplash.com/random/300x300" />
+        <p>Hi I'm a item</p>
+      </div>
+      <h2>
+        Hi im a heading 2
+        <span> I am hidden!!</span>
+      </h2>
+      <p>Hi I'm a item</p>
+      <div class="item">
+        <h2>Sub Div</h2>
+        <p class="pizza">Pizza is great! 🍕</p>
+        <p>Hi I'm a item</p>
+        <p>Hi I'm a item</p>
+      </div>
       <img src="https://source.unsplash.com/random/300x300" />
       <p>Hi I'm a item</p>
     </div>
-    <h2>Hi im a heading 2
-      <span> I am hidden!!</span>
-    </h2>
-    <p>Hi I'm a item</p>
-    <div class="item">
-      <h2>Sub Div</h2>
-      <p class="pizza">Pizza is great! 🍕</p>
-      <p>Hi I'm a item</p>
-      <p>Hi I'm a item</p>
+    <style>
+      h2 span {
+        display: none;
+      }
+      img {
+        transition: all 0.3s;
+      }
 
-    </div>
-    <img src="https://source.unsplash.com/random/300x300" />
-    <p>Hi I'm a item</p>
-  </div>
-  <style>
-    h2 span {
-      display: none;
-    }
-    img {
-      transition: all 0.2s;
-
-    }
-
-    .round {
-      border-radius: 50%;
-      transform: rotate(1turn) scale(1.5);
-    }
-  </style>
-</body>
-
+      .round {
+        border-radius: 50%;
+        /* transform: rotate(1turn) scale(0.75); */
+        transform: rotate(20deg) scale(0.75);
+      }
+    </style>
+  </body>
 </html>
