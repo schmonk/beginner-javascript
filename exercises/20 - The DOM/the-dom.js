@@ -23,10 +23,32 @@ console.dir(pizzaList.textContent);
 const pic = document.querySelector('.nice');
 pic.classList.add('open');
 pic.classList.add('round');
-console.log(pic.classList);
+// console.log(pic.classList);
 
 function toggleRound() {
   pic.classList.toggle('round');
 }
 
 pic.addEventListener('click', toggleRound);
+
+pic.alt = 'Cute pup'; // setter
+pic.width = 200;
+// console.log(pic.alt); //getter
+// console.log(pic.naturalWidth); //getter
+
+window.addEventListener('load', function () {
+  console.log(pic.naturalWidth); //getter
+}); //waits for content to be loaded
+
+pic.addEventListener('load', function () {
+  console.log(pic.naturalWidth); //getter
+});
+
+console.log(pic.getAttribute('alt'));
+
+const custom = document.querySelector('.custom');
+console.log(custom.dataset); // returns undefined
+
+custom.addEventListener('click', function () {
+  alert(`Welcome ${custom.dataset.name}`);
+});
