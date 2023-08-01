@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Intervals and Timers</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Intervals and Timers</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <script>
+      msDelay = 500;
+      function buzzer() {
+        console.log('bzzzzzz');
+      }
+      console.log('starting');
+      setTimeout(buzzer, msDelay);
+      console.log('finishing');
 
-<body>
+      function setImmediateInterval(functionToRun, milliseconds) {
+        // call func asap
+        functionToRun();
+        return setInterval(functionToRun, milliseconds);
+      }
 
-</body>
+      setImmediateInterval(buzzer, 2000);
 
+      // to clear a timer or interval, you need to save a reference to it
+
+      function destroy() {
+        document.body.innerHTML = `<p>Destroyed</p>`;
+      }
+
+      const destructionTimer = setTimeout(destroy, 5000);
+
+      window.addEventListener('clikc', function () {
+        console.log('stopped the destruction!!');
+        clearTimeout(destructionTimer); //stops timer
+      });
+
+      const poopInterval = setInterval(function () {
+        console.log('poop');
+      }, 100);
+
+      setTimeout(function () {
+        clearTimeout(poopInterval);
+      }, 5000);
+    </script>
+  </body>
 </html>
