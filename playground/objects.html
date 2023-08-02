@@ -1,17 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <input type="text" name="first" id="" value="eric" />
+    <script>
+      const age = 100;
+      const person = {
+        age,
+        name: 'Enrico',
+        'cool-dude': true,
+        ' really spaced out': false,
+        clothing: {
+          shirts: 10,
+          pants: 2,
+        },
+        dog: 'kishor',
+        sayHello: function (greeting = 'Hey, default greeting to you') {
+          return `${greeting} ${this.name}`;
+        },
+        alternateGreeting(alternativeGreeting = 'Alternative default greeing to you') {
+          return `${alternativeGreeting} ${this.name}`;
+        },
+        sneeze: () => {
+          console.log('hatschiii');
+        },
+      };
 
-<body>
-  <script>
+      person.job = 'Design dude';
+      person.age = 50;
 
-  </script>
-</body>
+      // const personFreeze = Object.freeze(person);
+      // console.log(person.age, person['age']); // 50 50
 
+      // const propertyToCheck = prompt('what do you want to check?');
+      // console.log(person[propertyToCheck]);
+
+      const nameInput = document.querySelector('[name="first"]');
+      const name = nameInput ? nameInput.value : null;
+      console.log(name);
+
+      const deletionVariable = delete person.dog;
+      person.age = undefined;
+      person.age = null;
+
+      // Methods
+    </script>
+  </body>
 </html>
