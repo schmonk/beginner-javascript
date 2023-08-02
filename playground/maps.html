@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="icon" href="https://fav.farm/🌶" />
+  </head>
+  <body>
+    <ul class="prizes"></ul>
+    <script>
+      const person1 = {
+        name: 'wes',
+        age: 200,
+      };
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Maps</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+      const myMap = new Map();
+      myMap.set('name', 'eric');
+      myMap.set(person1, 'Really cool');
+      console.log(myMap);
 
-<body>
-  <script>
+      const score = 100;
+      const prizes = new Map();
+      prizes.set(100, 'Bear');
+      prizes.set(200, 'Duck');
+      prizes.set(300, 'Dog');
+      console.log(`You win a ${prizes.get(score)}`);
 
-  </script>
-</body>
+      //select ul
 
+      const ul = document.querySelector('.prizes');
+      for (const [points, reward] of prizes) {
+        const li = `<li>${points} - ${reward} </li>`;
+        ul.insertAdjacentHTML('beforeend', li);
+      }
+
+      const newMap = new Map([
+        ['name', 'eric'],
+        ['age', 49],
+      ]);
+      console.log(newMap);
+    </script>
+  </body>
 </html>
