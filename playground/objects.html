@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title></title>
     <link rel="stylesheet" href="../base.css" />
+    <link rel="icon" href="https://fav.farm/🌶" />
   </head>
 
   <body>
     <input type="text" name="first" id="" value="eric" />
+    <script src="https://unpkg.com/lodash@4.17.21/lodash.js"></script>
     <script>
       const age = 100;
       const person = {
@@ -43,13 +45,64 @@
 
       const nameInput = document.querySelector('[name="first"]');
       const name = nameInput ? nameInput.value : null;
-      console.log(name);
+      // console.log(name);
 
-      const deletionVariable = delete person.dog;
+      /*       const deletionVariable = delete person.dog;
       person.age = undefined;
-      person.age = null;
+      person.age = null; */
 
-      // Methods
+      let name1 = 'wes';
+      let name2 = 'wes';
+      console.log(name1 === name2);
+      name1 = 'peter';
+      console.log(name1 === name2);
+      name1 = name2;
+      console.log(name1 === name2);
+      name2 = name1;
+      name2 = 'westopher';
+
+      const person1 = {
+        first: 'eric',
+        last: 'sherman',
+        clothing: {
+          shirts: 10,
+          pants: 3,
+        },
+      };
+
+      const person2 = {
+        first: 'eric',
+        last: 'sherman',
+      };
+      /*
+      const person3 = person1;
+      person3.first = 'Ruedi';
+      console.log(person3.first);
+      console.log(person1.first); */
+      // const person3 = { ...person1 };
+      const person3 = _.cloneDeep(person1);
+
+      // Merging objects
+
+      const meatInventory = {
+        bacon: 2,
+        sausage: 3,
+      };
+
+      const veggieInventory = {
+        lettuce: 1,
+        tomatoes: 15,
+      };
+
+      const combinedInventory = { ...meatInventory, ...veggieInventory };
+
+      const testName = 'eric';
+      function doThings(data) {
+        data.tomatoes = 1000;
+        console.log(data);
+      }
+
+      doThings(combinedInventory);
     </script>
   </body>
 </html>
