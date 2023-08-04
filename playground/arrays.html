@@ -1,17 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title> </title>
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="icon" href="https://fav.farm/🌶" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>
+  <body>
+    <script>
+      const names = ['eric', 'nina', 'flauschi'];
+      console.log(names[0]);
+      console.log(names.length);
+      console.log(names[names.length - 1]);
 
-  </title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+      names.push('kiko');
+      console.log(names);
+      const names2 = [...names, 'robin'];
+      console.log('names 2:', names2);
+      names.unshift('primus');
+      console.log(names);
+      const names3 = ['primus', ...names];
+      console.log(names3);
 
-<body>
+      const gpus = ['asus', 'msi', 'geforce', 'hyperX'];
+      const newGpus = [...gpus.slice(0, 2), 'gugusBrand', 'anotheBrand', ...gpus.slice(2)];
+      console.log(newGpus);
 
-</body>
+      const newGpus2 = [...gpus.slice(0, 2), ...gpus.slice(3)];
+      console.log(newGpus2);
 
+      const comments = [
+        { text: 'cool beans', id: 123 },
+        { text: 'first', id: 124 },
+        { text: 'love beans', id: 125 },
+        { text: 'best beans', id: 142 },
+        { text: 'beananza', id: 222 },
+      ];
+
+      function deleteComment(id, commentsArray) {
+        //first: find index of item in array
+        const commentIndex = commentsArray.findIndex((comment) => comment.id === id);
+        //second: create new array without that item in it
+        return [...commentsArray.slice(0, commentIndex), ...commentsArray.slice(commentIndex + 1)];
+
+        //third: return new array
+      }
+
+      const ericIndex = names.findIndex((name) => name === 'eric');
+      const newNameWithoutEric = [...names.slice(0, ericIndex), ...names.slice(ericIndex + 1)];
+      console.log(ericIndex);
+      console.log(newNameWithoutEric);
+      /* const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+      console.log(numbers);
+      numbers.splice(3, 2);
+      console.log(numbers); */
+
+      /*       // Mutation method
+      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      // numbers.reverse();
+      console.log(numbers);
+
+      const numbersReversed = [...numbers].reverse();
+      console.log(numbersReversed);
+
+      // Immutable methods
+      const testSlice = numbers.slice(2, 4);
+      console.log(testSlice); // 3,4
+      console.log(numbers); // still the same! */
+    </script>
+  </body>
 </html>
