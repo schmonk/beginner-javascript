@@ -151,7 +151,46 @@
       }
       toppings.forEach(logTopping);
 
+      console.clear();
+
       // Map
+      function addArms(face) {
+        return `👋 ${face} 👋`;
+      }
+
+      const toys = faces.map(addArms);
+
+      console.log(toys);
+
+      function wangerify(name) {
+        return `${name} Wanger`;
+      }
+
+      function capitalize(word) {
+        return `${word[0].toUpperCase()}${word.slice(1)}`;
+      }
+
+      const fullnames = ['eric', 'nina', 'flauschi'].map(capitalize).map(wangerify);
+      console.log(fullnames);
+
+      const orderTotalsWithTax = orderTotals.map((total) => total * 0.08);
+      console.log(orderTotalsWithTax);
+
+      const cleanPeople = people.map(function (person) {
+        //get their birthday
+        const birthday = new Date(person.birthday).getTime();
+        const now = Date.now();
+        //figure out their age
+        const msInAYear = 1000 * 60 * 60 * 24 * 365;
+        const age = Math.floor((now - birthday) / msInAYear);
+        console.log(age);
+        //return full name and bday in an object
+        return {
+          age,
+          name: `${person.names.first} ${person.names.last}`,
+        };
+      });
+      console.table(cleanPeople);
 
       // Filter
 
