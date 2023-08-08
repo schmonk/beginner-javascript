@@ -134,8 +134,8 @@
       ];
 
       /*
-      Looping Methods
-    */
+        Looping Methods
+      */
       function logTopping(topping, index, originalArray) {
         const previousTopping = originalArray[index - 1];
         console.log(topping);
@@ -193,8 +193,47 @@
       console.table(cleanPeople);
 
       // Filter
+      const over40 = cleanPeople.filter((person) => person.age > 40);
+      console.table(over40);
 
+      function findById(id) {
+        return function isStudent(student) {
+          return student.id === id;
+        };
+      }
+
+      function findByProperty(prop, propWeAreLookingFor) {
+        return function isStudent(student) {
+          return student[prop] === propWeAreLookingFor;
+        };
+      }
+
+      const student = students.find(findByProperty('id', '565a'));
+      const student2 = students.find(findByProperty('first_name', 'Micki'));
+      console.log(student);
+      console.log(student2);
       // Reduce
+      console.clear();
+      function tallyNumbers(tally, currentTotal) {
+        // console.log(tally, currentTotal);
+        //return tally plus amount of current total
+        return tally + currentTotal;
+      }
+      const allOrders = orderTotals.reduce(tallyNumbers, 0);
+      console.log(allOrders);
+
+      function inventoryReducer(totals, item) {
+        console.log(`looping over ${item.type}`);
+        //increment type by 1
+        totals[item.type] = totals[item.type] + 1 || 1; //if shirt does not
+        // return the totals
+        return totals;
+      }
+      const inventoryCounts = inventory.reduce(inventoryReducer, {});
+      console.log(inventoryCounts);
+
+      const totalInventoryPrice = inventory.reduce((acc, item) => acc + item.price, 0);
+      console.log(totalInventoryPrice);
     </script>
   </body>
 </html>
