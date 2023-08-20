@@ -3,5 +3,8 @@
     "react": {
       "version": "detect"
     }
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest"
   }
 }
