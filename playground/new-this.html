@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>New, This, Prototypes and Classes</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>New, This, Prototypes and Classes</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <script>
+      const myDate = new Date('August 30 2023');
+      console.dir(myDate);
+      console.log(myDate.getFullYear());
 
-<body>
+      const names = ['eric', 'nina'];
+      const eric = { name: 'eric' };
 
-</body>
+      function Pizza() {
+        console.log('making a pizza');
+      }
 
+      const pepperoniPizza = new Pizza();
+      console.log(pepperoniPizza.constructor);
+    </script>
+  </body>
 </html>
