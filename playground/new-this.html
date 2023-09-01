@@ -8,6 +8,8 @@
   </head>
 
   <body>
+    <button class="one">One</button>
+    <button class="two">Two</button>
     <script>
       const myDate = new Date('August 30 2023');
       console.dir(myDate);
@@ -16,12 +18,31 @@
       const names = ['eric', 'nina'];
       const eric = { name: 'eric' };
 
-      function Pizza() {
+      function Pizza(toppings = [], customerName) {
         console.log('making a pizza');
+        console.log(this);
+        //save toppings that were passed in to this instance of pizza
+        this.toppings = toppings;
+        this.customerName = customerName;
+        this.id = new Date().getTime();
       }
 
-      const pepperoniPizza = new Pizza();
-      console.log(pepperoniPizza.constructor);
+      const pepperoniPizza = new Pizza(['pepperoni'], 'Enrico S');
+      const canadianPizza = new Pizza(['pepperoni', 'mushrooms', 'onion'], 'Nina W');
+
+      /* 
+      const buttonOne = document.querySelector('.one');
+      const buttonTwo = document.querySelector('.two');
+
+      function tellMeAboutTheButton() {
+        console.log(this);
+        setTimeout(() => {
+          console.log(this);
+          this.textContent = 'You clicked me a second ago';
+        }, 1000);
+      }
+      buttonOne.addEventListener('click', tellMeAboutTheButton);
+      buttonTwo.addEventListener('click', tellMeAboutTheButton); */
     </script>
   </body>
 </html>
