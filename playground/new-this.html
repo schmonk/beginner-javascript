@@ -18,6 +18,19 @@
       const names = ['eric', 'nina'];
       const eric = { name: 'eric' };
 
+      String.prototype.sarcastic = function () {
+        const sarcastic = this.split('')
+          .map((char, i) => {
+            if (i % 2) {
+              return char.toLocaleUpperCase();
+            } else {
+              return char.toLowerCase();
+            }
+          })
+          .join('');
+        return sarcastic;
+      };
+
       function Pizza(toppings = [], customerName) {
         console.log('making a pizza');
         console.log(this);
@@ -25,8 +38,30 @@
         this.toppings = toppings;
         this.customerName = customerName;
         this.id = new Date().getTime();
+        this.slices = 10;
+        /*         this.eat = function () {
+          if (this.slices > 0) {
+            this.slices = this.slices - 1;
+          } else {
+            console.log('sorry, no slices left');
+          }
+          return this.slices;
+        }; */
       }
+      Pizza.prototype.eat = function () {
+        if (this.slices > 0) {
+          this.slices = this.slices - 1;
+        } else {
+          console.log('sorry, no slices left');
+        }
+        return this.slices;
+      };
 
+      Pizza.prototype.describe = function () {
+        return `This pizza is for ${this.customerName} with the toppings ${this.toppings.join(
+          ', ',
+        )} and there are ${this.slices} slices left.`;
+      };
       const pepperoniPizza = new Pizza(['pepperoni'], 'Enrico S');
       const canadianPizza = new Pizza(['pepperoni', 'mushrooms', 'onion'], 'Nina W');
 
