@@ -1,17 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Promises</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Promises</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <script>
+      function makePizza(toppings = []) {
+        const pizzaPromise = new Promise(function (resolve, reject) {
+          const bakeTime = 500 + toppings.length * 200;
+          //wait 1s for the pizza to be baked
+          setTimeout(function () {
+            //when you are ready, you can resolve this promise
+            resolve(`Here is your pizza with the toppings ${toppings.join(' ')}`);
+          }, bakeTime);
+          //if something went wrong, we can reject this promise
+        });
+        return pizzaPromise;
+      }
 
-<body>
-  <script>
+      /*       makePizza(['tofu'])
+        .then(function (pizza) {
+          console.log(pizza);
+          return makePizza(['mushrooms', 'tomatoes', 'simply v cheese', 'sugo', 'cheese']);
+        })
+        .then(function (pizza) {
+          console.log(pizza);
+          return makePizza(['ham', 'tomatoes', 'cheese']);
+        })
+        .then(function (pizza) {
+          console.log(pizza);
+          return makePizza([]);
+        })
+        .then(function (pizza) {
+          console.log(pizza);
+        }); */
 
-  </script>
-</body>
+      // run them concurrently
+      const pizzaPromise1 = makePizza([
+        'mushrooms',
+        'tomatoes',
+        'simply v cheese',
+        'sugo',
+        'cheese',
+      ]);
+      const pizzaPromise2 = makePizza(['ham', 'tomatoes', 'cheese']);
+      const pizzaPromise3 = makePizza(['ham', 'cheese']);
 
+      const pizzaPartyPromise = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
+
+      pizzaPartyPromise.then(function (pizzas) {
+        console.log(pizzas);
+        const [fancy, nonVegan, lame] = pizzas;
+        console.log('fancy:', fancy, 'nonVegan: ', nonVegan, 'lame: ', lame);
+      });
+    </script>
+  </body>
 </html>
