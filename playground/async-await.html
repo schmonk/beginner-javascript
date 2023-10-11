@@ -1,17 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Async Await</title>
+    <link rel="icon" href="https://fav.farm/🥰" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Async Await</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<body>
-  <script>
+  <body>
+    <script>
+      function wait(milliseconds = 0) {
+        return new Promise((resolve) => {
+          setTimeout(resolve, milliseconds);
+        });
+      }
 
-  </script>
-</body>
+      async function go() {
+        console.log('starting');
+        await wait(2000);
+        console.log('running');
+        await wait(200);
+        console.log('ending');
+      }
 
+      go();
+
+      /*       // Function declaration
+      async function fd() {}
+
+      // Arrow function
+      const arrowFn = async () => {};
+
+      // Callback functions
+      window.addEventListener('click', async function () {});
+
+      // Methods
+      const person = {
+        sayHi: async function () {
+          // method
+        },
+        async sayHello() {
+          // this is method shorthand
+        },
+        sayHey: async () => {
+          // this is function property
+        },
+      }; */
+
+      function makePizza(toppings = []) {
+        return new Promise(function (resolve, reject) {
+          // reject if there is pinapple
+          if (toppings.includes('pineapple')) {
+            reject('Seriously? Get out with your pineapple!');
+          }
+          const bakeTime = 500 + toppings.length * 200;
+          // wait 1 second for the pizza to complete
+          setTimeout(function () {
+            // when you are ready, resolve this promise
+            resolve(`Here is your pizza with: ${toppings.join(' ')}`);
+          }, bakeTime);
+
+          // if something went wrong, we can reject this promise
+        });
+      }
+
+      async function makeDinner() {
+        const pizzaPromise2 = makePizza(['mushrooms']);
+        const pizzaPromise1 = makePizza(['seitan']);
+        const [mushroomsPizza, seitanPizza] = await Promise.all([pizzaPromise1, pizzaPromise2]);
+        console.log(mushroomsPizza, seitanPizza);
+      }
+      makeDinner();
+    </script>
+  </body>
 </html>

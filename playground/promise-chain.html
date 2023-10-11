@@ -45,6 +45,22 @@
 
       const go = document.querySelector('.go');
 
+      async function animateWithAwait(e) {
+        const el = e.currentTarget;
+        el.textContent = 'Go';
+        await wait(200);
+        el.classList.add('circle');
+        await wait(500);
+        el.classList.add('red');
+        await wait(250);
+        el.classList.remove('circle');
+        await wait(500);
+        el.classList.remove('red');
+        el.classList.add('purple');
+        await wait(250);
+        el.classList.add('fadeOut');
+      }
+
       function animate(e) {
         const el = e.currentTarget;
         el.textContent = 'Go';
@@ -71,7 +87,7 @@
           });
       }
 
-      go.addEventListener('click', animate);
+      go.addEventListener('click', animateWithAwait);
       go.addEventListener('clickXXXX', function (e) {
         const el = e.currentTarget;
         console.log(el);
