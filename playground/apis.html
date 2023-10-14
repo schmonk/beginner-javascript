@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>APIs</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>APIs</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <p class="user"></p>
+    <script>
+      const baseEndpoint = 'https://api.github.com';
+      const usersEndpoint = `${baseEndpoint}/users`;
+      const userElement = document.querySelector('.user');
 
-<body>
-  <script>
+      async function displayUser(username) {
+        userElement.textContent = `loading..`;
+        const response = await fetch(`${usersEndpoint}/${username}`);
+        const data = await response.json();
+        console.log(data);
+        console.log(data.blog);
+        console.log(data.name);
+        userElement.textContent = `${data.name} - ${data.blog}`;
+      }
+      function handleError(err) {
+        console.log('Oh no, error occured: ');
+        console.log(err);
+        userElement.textContent = `error occured: ${err}`;
+      }
 
-  </script>
-</body>
-
+      displayUser('wesbos').catch(handleError);
+    </script>
+  </body>
 </html>
