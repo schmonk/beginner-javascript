@@ -88,7 +88,7 @@ async function convert(amount, from, to) {
   ratesByBase[from] = rates;
 }
 
-async function someFunction() {
+async function someFunction(amount, from, to) {
   // Call the 'convert' function and await its result
   try {
     const convertedAmount = await convert(amount, from, to);
